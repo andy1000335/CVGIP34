@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>CVGIP 2021 議程資訊</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand m-lg-auto mb-0 h1">CVGIP 2021 議程資訊</span>
+        </div>
+    </nav>
+    
+    <h3 id="hints" style="display: none; color: red;">* 若使用 IE 瀏覽器可能會導致部分功能無法使用，請改用其他瀏覽器。</h3>
+    
+    <div class="filter">
+        <div class="time">            
+            時間：
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="day1" checked onclick="selectDay(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox1">8/22</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="day2" checked onclick="selectDay(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox2">8/23</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="day3" checked onclick="selectDay(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox3">8/24</label>
+            </div>
+        </div>
+        <div class="tag" style="display: block;">
+            標籤：
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="computer-vision" checked onclick="selectTag(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox4">電腦視覺</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="image-processing" checked onclick="selectTag(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox5">影像處理</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="computer-graphics" checked onclick="selectTag(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox6">電腦圖學</label>
+            </div> 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="pattern-recognition" checked onclick="selectTag(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox7">圖形識別</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="video-processing" checked onclick="selectTag(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox8">視訊處理</label>
+            </div> 
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox9" value="else" checked onclick="selectTag(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox9">其他應用</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox10" value="none" checked onclick="selectTag(value, checked)">
+                <label class="form-check-label" for="inlineCheckbox10">其他</label>
+            </div>
+        </div>
+        <div class="dropdown" style="display: none;">
+            標籤：
+            <button class="btn dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="computer-vision" checked onclick="selectTag(value, checked)">
+                    <label class="form-check-label" for="inlineCheckbox4">電腦視覺</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="image-processing" checked onclick="selectTag(value, checked)">
+                    <label class="form-check-label" for="inlineCheckbox5">影像處理</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="computer-graphics" checked onclick="selectTag(value, checked)">
+                    <label class="form-check-label" for="inlineCheckbox6">電腦圖學</label>
+                </div> 
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="pattern-recognition" checked onclick="selectTag(value, checked)">
+                    <label class="form-check-label" for="inlineCheckbox7">圖形識別</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="video-processing" checked onclick="selectTag(value, checked)">
+                    <label class="form-check-label" for="inlineCheckbox8">視訊處理</label>
+                </div> 
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox9" value="else" checked onclick="selectTag(value, checked)">
+                    <label class="form-check-label" for="inlineCheckbox9">其他應用</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox10" value="none" checked onclick="selectTag(value, checked)">
+                    <label class="form-check-label" for="inlineCheckbox10">其他</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h5 style="color: red; margin: 20px 50px;">* 請於會議開始前 10 分鐘再進入會議室</h5>
+
+    <div class="switch">
+        <a class="btn btn-danger" id="switch" style="color: white;" onclick="displaySwitch()">查看已結束議程</a>
+        <a tabindex="0" class="btn btn-secondary" role="button" data-toggle="popover" data-placement="auto" data-popover-content="body">
+            會議議題
+        </a>
+    </div>
+
+    <div id="popover-body" style="display:none;">
+        <center>
+            <table cellpadding="5">
+                <tr>
+                    <th>電腦視覺</th>
+                    <th>影像處理</th>
+                </tr>
+                <tr>
+                    <td>
+                        景物分析 (Scene Analysis)<br/>
+                        攝影機校正 (Camera Calibration)<br/>
+                        三維景物重建 (3D Reconstruction)<br/>
+                        視覺式監控 (Vision-based Surveillance)<br/>
+                        視覺式人機介面 (Vision Interface)
+                    </td>
+                    <td>
+                        文件影像處理 (Document Image Processing)<br/>
+                        醫學影像處理 (Medical Image Processing)<br/>
+                        遙測影像處理 (Remote Image Processing)<br/>
+                        影像/視訊浮水印 (Image/Video Watermarking)<br/>
+                        超解析度 (Super-resolution)
+                    </td>
+                </tr>
+                <tr>
+                    <th>電腦圖學</th>
+                    <th>圖形識別</th>
+                </tr>
+                <tr>
+                    <td>
+                        繪圖 (Rendering)<br/>
+                        三維模型 (3D Modeling)<br/>
+                        視覺化 (Visualization)<br/>
+                        動畫 (Animation)<br/>
+                        人機互動 (Human-Computer Interaction)<br/>
+                        擴增實境/虛擬實境 (Augmented Reality/Virtual Reality)
+                    </td>
+                    <td>
+                        人臉偵測與辨識 (Face Detection & Recognition)<br/>
+                        表情辨識 (Facial Expression Recognition)<br/>
+                        人體姿勢辨識 (Gesture Recognition)<br/>
+                        行為辨識 (Behavior Recognition)
+                    </td>
+                </tr>
+                <tr>
+                    <th>視訊處理</th>
+                    <th>其他應用</th>
+                </tr>
+                <tr>
+                    <td>
+                        視訊物件切割 (Video Object Segmentation)<br/>
+                        視訊物件追蹤 (Video Object Tracking)<br/>
+                        視訊內涵分析(Video Content Analysis)<br/>
+                        視訊索引與檢索 (Video Indexing and Retrieval)<br/>
+                        視訊壓縮與傳輸 (Compression and Transmission of Videos)<br/>
+                        視訊調適技術 (Video Adaptation)<br/>
+                        網路視訊 (Video Networking)
+                    </td>
+                    <td>
+                        工業視覺檢測 (Visual Inspection)<br/>
+                        機器人視覺 (Robotic Vision)<br/>
+                        智慧型交通運輸系統 (Intelligent Transportation System)<br/>
+                        多媒體通信網路 (Multimedia Communication Network)<br/>
+                        數位訊號處理 (Digital Signal Processing)<br/>
+                        多媒體單晶片 (Multimedia SoC)<br/>
+                        生物醫學應用 (Biomedical Application)<br/>
+                        多媒體資訊安全 (Multimedia Security and Forensics)<br/>
+                        多媒體技術融入教學 (Multimedia in education)
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </div>
+
+    <div class="day-block all-day" style="display:block;">
+        <div class='day-tag' style="display:block;"></div>
+		<div class="card" id="#" style="display:block;" tag="else" end="2021-08-24T23:00:00">
+            <div class="card-header">
+			
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    大會詢問台
+                </h5>
+                <p class="card-text">
+                    大會期間，如有任何問題，請進入此會議室，會有專人為您解惑。
+                </p>
+                <a href="https://meet.google.com/cda-ebdd-bst" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+	</div>
+
+    <!-- day 1 (8/22) -->
+    <div class="day-block day1" style="display:block;">
+        <div class='day-tag' style="display:block;">
+            <h2>8/22 (日)</h2>
+        </div>
+        <!-- 13:00 ~ 15:00 -->
+        <div class="card" id="S22A1" style="display:block;" tag="none" end="2021-08-22T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=1" target="_blank">
+                        S22A1：Oral Session 1 - CVGIP Best Paper Session (I)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/39_abstract.pdf" target="_blank">39</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/72_abstract.pdf" target="_blank">72</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/89_abstract.pdf" target="_blank">89</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss01-02_abstract.pdf" target="_blank">ss01-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss08-03_abstract.pdf" target="_blank">ss08-03</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>胡敏君教授 (清大)、莊永裕教授 (台大)</td>
+                    </tr>
+                </table>
+                <a href="https://meet.google.com/qjk-mjgo-wkx" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22A2" style="display:block;" tag="none" end="2021-08-22T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=2" target="_blank">
+                        S22A2：Oral Session 2 - CVGIP Best Paper Session (II)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/13_abstract.pdf" target="_blank">13</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/42_abstract.pdf" target="_blank">42</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/85_abstract.pdf" target="_blank">85</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-06_abstract.pdf" target="_blank">ss04-06</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss10-02_abstract.pdf" target="_blank">ss10-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>王元凱教授 (輔大)、林道通教授 (台北大)</td>
+                    </tr>
+                </table>
+                <a href="https://meet.google.com/prm-ofpc-wve" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22A3" style="display:block;" tag="none" end="2021-08-22T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=3" target="_blank">
+                        S22A3：Oral Session 3 - CVGIP Best Paper Session (III)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/43_abstract.pdf" target="_blank">43</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/48_abstract.pdf" target="_blank">48</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/51_abstract.pdf" target="_blank">51</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss02-04_abstract.pdf" target="_blank">ss02-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss09-02_abstract.pdf" target="_blank">ss09-02</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>朱威達教授 (成大)、陳永昇教授 (陽明交大)</td>
+                    </tr>
+                </table>
+                <a href="https://meet.google.com/ajh-jafj-yau" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22A4" style="display:block;" tag="none" end="2021-08-22T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=4" target="_blank">
+                        S22A4：Oral Session 4 - CVGIP Best Paper Session (IV)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/56_abstract.pdf" target="_blank">56</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/59_abstract.pdf" target="_blank">59</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss03-04_abstract.pdf" target="_blank">ss03-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss06-03_abstract.pdf" target="_blank">ss06-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss07-05_abstract.pdf" target="_blank">ss07-05</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>鄭旭詠教授 (中央)、傅楸善教授 (台大)</td>
+                    </tr>
+                </table>
+                <a href="https://meet.google.com/hem-nfst-rxa" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22A5" style="display:block;" tag="computer-vision" end="2021-08-22T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=5" target="_blank">
+                        S22A5：Oral Session 5 - Computer Vision (I)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/14_abstract.pdf" target="_blank">14</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/21_abstract.pdf" target="_blank">21</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/23_abstract.pdf" target="_blank">23</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/24_abstract.pdf" target="_blank">24</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/25_abstract.pdf" target="_blank">25</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/29_abstract.pdf" target="_blank">29</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>賴冠廷教授 (北科大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-primary">電腦視覺</span>
+                </div>
+                <a href="https://meet.google.com/hya-zazs-vgc" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <!-- 15:20 ~ 17:20 -->
+        <div class="card" id="S22B1" style="display:block;" tag="image-processing" end="2021-08-22T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=6" target="_blank">
+                        S22B1：Oral Session 6 - Remote Sensing Applications based on Machine Learning
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss01-01_abstract.pdf" target="_blank">ss01-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss01-03_abstract.pdf" target="_blank">ss01-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss01-04_abstract.pdf" target="_blank">ss01-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss01-06_abstract.pdf" target="_blank">ss01-06</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>陳映濃教授 (中央)、莊啟宏教授 (佛光)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-success">影像處理</span>
+                </div>
+                <a href="https://meet.google.com/wiq-pudq-vqw" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22B2" style="display:block;" tag="image-processing" end="2021-08-22T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=7" target="_blank">
+                        S22B2：Oral Session 7 - Image Processing (I)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/5_abstract.pdf" target="_blank">5</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/12_abstract.pdf" target="_blank">12</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/16_abstract.pdf" target="_blank">16</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/17_abstract.pdf" target="_blank">17</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/28_abstract.pdf" target="_blank">28</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/45_abstract.pdf" target="_blank">45</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>邵皓強教授 (輔大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-success">影像處理</span>
+                </div>
+                <a href="https://meet.google.com/tbb-jmcj-erf" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22B3" style="display:block;" tag="pattern-recognition" end="2021-08-22T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=8" target="_blank">
+                        S22B3：Oral Session 8 - Pattern Recognition (I)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/6_abstract.pdf" target="_blank">6</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/7_abstract.pdf" target="_blank">7</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/8_abstract.pdf" target="_blank">8</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/10_abstract.pdf" target="_blank">10</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/18_abstract.pdf" target="_blank">18</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/38_abstract.pdf" target="_blank">38</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>馬清文教授 (陽明交大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-danger">圖形識別</span>
+                </div>
+                <a href="https://meet.google.com/jeg-yzdy-dpa" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22B4" style="display:block;" tag="video-processing" end="2021-08-22T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=9" target="_blank">
+                        S22B4：Oral Session 9 - Video Processing
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/26_abstract.pdf" target="_blank">26</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/52_abstract.pdf" target="_blank">52</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/75_abstract.pdf" target="_blank">75</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/79_abstract.pdf" target="_blank">79</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/84_abstract.pdf" target="_blank">84</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/91_abstract.pdf" target="_blank">91</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>許志仲教授 (成大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-info">視訊處理</span>
+                </div>
+                <a href="https://meet.google.com/hze-zwjm-bfy" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="S22B5" style="display:block;" tag="else" end="2021-08-22T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=10" target="_blank">
+                        S22B5：Oral Session 10 - Applications (I)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/3_abstract.pdf" target="_blank">3</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/4_abstract.pdf" target="_blank">4</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/15_abstract.pdf" target="_blank">15</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/20_abstract.pdf" target="_blank">20</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/32_abstract.pdf" target="_blank">32</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/35_abstract.pdf" target="_blank">35</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>詹益東教授 (海軍官校)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/awz-aaph-bvz" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- day 2 (8/23) -->
+    <div class="day-block day2" style="display:block;">
+        <div class='day-tag' style="display:block;">
+            <h2>8/23 (一)</h2>
+        </div>
+        <!-- 9:00 ~ 9:40 -->
+        <div class="card" id="MS-TEAM-M23K" style="display:block;" tag="none" end="2021-08-23T09:40:00">
+            <div class="card-header">
+                9:00 ~ 9:40
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">MS-TEAM-M23K：IPPR 會員大會</h5>
+                <p class="card-text" style="color: red;">會議網址：已發 EMAIL 給各 IPPR 會員<br/>注意事項：需以真實姓名、並使用可視訊之設備參加會議（須配合開鏡頭）</p>
+            </div>
+        </div>
+        <!-- 9:50 ~ 10:00 -->
+        <div class="card" id="MEET-M23-YT" style="display:block;" tag="none" end="2021-08-23T10:00:00">
+            <div class="card-header">
+                9:50 ~ 10:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">MEET-M23-YT：CVGIP 開幕式</h5>
+                <p class="card-text" style="color: red;">
+                    * 因應 Google Meet 人數限制，若 Meet 會議室無法進入，麻煩請至 YouTube 直播觀賞。
+                </p>
+                <p class="card-text" style="color: red;">
+                    * 若無法觀看 YouTube 直播，可參考官方教學 <a href="https://www.youtube.com/watch?v=dtQat5HNYrI&ab_channel=YouTubeViewers">開啟/關閉「嚴格篩選模式」</a>。
+                </p>
+                <a href="https://meet.google.com/psr-udym-bdw" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+                <a href="https://youtu.be/7oL2XxMtVac" target="_blank" class="btn btn-outline-dark">YouTube 直播</a>
+            </div>
+        </div>
+        <!-- 10:00 ~ 10:50 -->
+        <div class="card" id="keynote1" style="display:block;" tag="none" end="2021-08-23T10:50:00">
+            <div class="card-header">
+                10:00 ~ 10:50
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">MEET-M23-YT：專題演講 (一) - 產業技術策略藍圖規畫：以 ITRI2030 為例</h5>
+                <p class="card-title">工業技術研究院總營運長兼營運發展處處長 余孝先總營運長</p>
+                <p class="card-text">引言人：張傳育理事長</p>
+                <p class="card-text" style="color: red;">
+                    * 因應 Google Meet 人數限制，若 Meet 會議室無法進入，麻煩請至 YouTube 直播觀賞。
+                </p>
+                <p class="card-text" style="color: red;">
+                    * 若無法觀看 YouTube 直播，可參考官方教學 <a href="https://www.youtube.com/watch?v=dtQat5HNYrI&ab_channel=YouTubeViewers">開啟/關閉「嚴格篩選模式」</a>。
+                </p>
+                <a href="https://meet.google.com/psr-udym-bdw" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+                <a href="https://youtu.be/7oL2XxMtVac" target="_blank" class="btn btn-outline-dark">YouTube 直播</a>
+            </div>
+        </div>
+        <!-- 11:10 ~ 12:00 -->
+        <div class="card" id="keynote2" style="display:block;" tag="none" end="2021-08-23T12:00:00">
+            <div class="card-header">
+                11:10 ~ 12:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">MEET-M23-YT：專題演講 (二) - Edge AI 在影像辨識之應用</h5>
+                <p class="card-title">義隆電子董事長兼台灣人工智慧學校董事 葉儀晧董事長</p>
+                <p class="card-text">引言人：黃育賢院長</p>
+                <p class="card-text" style="color: red;">
+                    * 因應 Google Meet 人數限制，若 Meet 會議室無法進入，麻煩請至 YouTube 直播觀賞。
+                </p>
+                <p class="card-text" style="color: red;">
+                    * 若無法觀看 YouTube 直播，可參考官方教學 <a href="https://www.youtube.com/watch?v=dtQat5HNYrI&ab_channel=YouTubeViewers">開啟/關閉「嚴格篩選模式」</a>。
+                </p>
+                <a href="https://meet.google.com/psr-udym-bdw" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+                <a href="https://youtu.be/7oL2XxMtVac" target="_blank" class="btn btn-outline-dark">YouTube 直播</a>
+            </div>
+        </div>
+        <!-- 13:00 ~ 15:00 -->
+        <div class="card" id="M23C1" style="display:block;" tag="none" end="2021-08-23T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=29" target="_blank">
+                        M23C1：IPPR 博碩士論文獎發表
+                    </a>
+                </h5>
+                <p class="card-title">陳文柏、沈奕超、蔡菀倫、陳婕云、林志皓、葉鈺萱</p>
+                <p class="card-text">主持人：洪一平教授 (台大)</p>
+                <a href="https://meet.google.com/etv-fmca-dbq" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23C2" style="display:block;" tag="computer-vision" end="2021-08-23T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=11" target="_blank">
+                        M23C2：Oral Session 11 - Computer Vision (II)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/30_abstract.pdf" target="_blank">30</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/31_abstract.pdf" target="_blank">31</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/36_abstract.pdf" target="_blank">36</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/60_abstract.pdf" target="_blank">60</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/98_abstract.pdf" target="_blank">98</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/100_abstract.pdf" target="_blank">100</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>繆紹綱教授 (中原)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-primary">電腦視覺</span>
+                </div>
+                <a href="https://meet.google.com/jgi-bner-ibq" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23C3" style="display:block;" tag="computer-vision" end="2021-08-23T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=12" target="_blank">
+                        M23C3：Oral Session 12 - Computer Vision (III)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/37_abstract.pdf" target="_blank">37</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/40_abstract.pdf" target="_blank">40</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/41_abstract.pdf" target="_blank">41</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/44_abstract.pdf" target="_blank">44</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/50_abstract.pdf" target="_blank">50</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/54_abstract.pdf" target="_blank">54</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>殷堂凱教授 (高大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-primary">電腦視覺</span>
+                </div>
+                <a href="https://meet.google.com/dbr-aqoi-nzt" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23C4" style="display:block;" tag="computer-vision" end="2021-08-23T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=13" target="_blank">
+                        M23C4：Oral Session 13 - Computer Vision (IV)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/63_abstract.pdf" target="_blank">63</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/64_abstract.pdf" target="_blank">64</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/69_abstract.pdf" target="_blank">69</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/71_abstract.pdf" target="_blank">71</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/87_abstract.pdf" target="_blank">87</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/88_abstract.pdf" target="_blank">88</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>林建州教授 (雲科大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-primary">電腦視覺</span>
+                </div>
+                <a href="https://meet.google.com/hbv-scgy-hbw" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23C5" style="display:block;" tag="else" end="2021-08-23T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=14" target="_blank">
+                        M23C5：Oral Session 14 - Applications (II)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/53_abstract.pdf" target="_blank">53</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/55_abstract.pdf" target="_blank">55</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/90_abstract.pdf" target="_blank">90</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/95_abstract.pdf" target="_blank">95</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/99_abstract.pdf" target="_blank">99</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>謝君偉教授 (陽明交大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/qqj-ecjh-xrg" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23CP" style="display:block;" tag="none" end="2021-08-23T15:00:00">
+            <div class="card-header">
+                13:00 ~ 15:00
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">M23CP：Poster Session - 科技部工程司計畫成果發表</h5>
+                <a href="https://confs.ee.ntut.edu.tw/cvgip2021/721-2/" target="_blank" class="btn btn-outline-dark">海報張貼地點</a>
+            </div>
+        </div>
+        <!-- 15:20 ~ 17:20 -->
+        <div class="card" id="M23D1" style="display:block;" tag="none" end="2021-08-23T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">M23D1：CVGIP 產業特別論壇</h5>
+                <table>
+                    <tr>
+                        <td>主&ensp;&ensp;&ensp;&ensp;題：</td>
+                        <td>科技驅動的文化藝術演繹</td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>張傳育理事長 (IPPR/工研院/雲科大)</td>
+                    </tr>
+                    <tr>
+                        <td>與&ensp;談&ensp;人：</td>
+                        <td>國立故宮博物院數位資訊室 謝俊科主任、夢想動畫有限公司 林家齊總經理、工研院服務系統科技中心 施香蘭經理</td>
+                    </tr>
+                </table>
+                <a href="https://meet.google.com/fzj-qpxi-auf" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23D2" style="display:block;" tag="image-processing" end="2021-08-23T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=15" target="_blank">
+                        M23D2：Oral Session 15 - Image Processing (II)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/46_abstract.pdf" target="_blank">46</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/47_abstract.pdf" target="_blank">47</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/49_abstract.pdf" target="_blank">49</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/73_abstract.pdf" target="_blank">73</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/81_abstract.pdf" target="_blank">81</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/86_abstract.pdf" target="_blank">86</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>林泓宏教授 (南台科大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-success">影像處理</span>
+                </div>
+                <a href="https://meet.google.com/gmf-kxnc-twb" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23D3" style="display:block;" tag="image-processing" end="2021-08-23T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=16" target="_blank">
+                        M23D3：Oral Session 16 - Image Processing (III)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/9_abstract.pdf" target="_blank">9</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/58_abstract.pdf" target="_blank">58</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/68_abstract.pdf" target="_blank">68</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/70_abstract.pdf" target="_blank">70</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/80_abstract.pdf" target="_blank">80</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/82_abstract.pdf" target="_blank">82</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>林家瑜教授 (元智)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-success">影像處理</span>
+                </div>
+                <a href="https://meet.google.com/zox-yvqc-ogo" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23D4" style="display:block;" tag="pattern-recognition" end="2021-08-23T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=17" target="_blank">
+                        M23D4：Oral Session 17 - Pattern Recognition (II)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/66_abstract.pdf" target="_blank">66</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/74_abstract.pdf" target="_blank">74</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/77_abstract.pdf" target="_blank">77</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/78_abstract.pdf" target="_blank">78</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/83_abstract.pdf" target="_blank">83</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/97_abstract.pdf" target="_blank">97</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>帥宏翰教授 (陽明交大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-danger">圖形識別</span>
+                </div>
+                <a href="https://meet.google.com/nos-aekc-amf" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="M23D5" style="display:block;" tag="else" end="2021-08-23T17:20:00">
+            <div class="card-header">
+                15:20 ~ 17:20
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=18" target="_blank">
+                        M23D5：Oral Session 18 - Artificial Intelligence and Multimedia with Applications
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss05-01_abstract.pdf" target="_blank">ss05-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss05-02_abstract.pdf" target="_blank">ss05-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss05-03_abstract.pdf" target="_blank">ss05-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss05-04_abstract.pdf" target="_blank">ss05-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss05-05_abstract.pdf" target="_blank">ss05-05</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss05-06_abstract.pdf" target="_blank">ss05-06</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>康立威教授 (台師大)、蔣欣翰教授 (台師大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/gqp-urdy-ncx" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- day 3 (8/24) -->
+    <div class="day-block day3" style="display:block;">
+        <div class='day-tag' style="display:block;">
+            <h2>8/24 (二)</h2>
+        </div>
+        <!-- 8:20 ~ 9:50 -->
+        <div class="card" id="T24E1" style="display:block;" tag="computer-vision" end="2021-08-24T09:50:00">
+            <div class="card-header">
+                8:20 ~ 9:50
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=19" target="_blank">
+                        T24E1：Oral Session 19 - Advanced Computer Vision with Deep Learning
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/33_abstract.pdf" target="_blank">33</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/61_abstract.pdf" target="_blank">61</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss06-01_abstract.pdf" target="_blank">ss06-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss06-02_abstract.pdf" target="_blank">ss06-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss06-04_abstract.pdf" target="_blank">ss06-04</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>江振國教授 (中正)、林國祥教授 (勤益)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-primary">電腦視覺</span>
+                </div>
+                <a href="https://meet.google.com/xhv-jvvi-wxi" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24E2" style="display:block;" tag="else" end="2021-08-24T09:50:00">
+            <div class="card-header">
+                8:20 ~ 9:50
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=20" target="_blank">
+                        T24E2：Oral Session 20 - Applications (III)
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/65_abstract.pdf" target="_blank">65</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/67_abstract.pdf" target="_blank">67</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/92_abstract.pdf" target="_blank">92</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/93_abstract.pdf" target="_blank">93</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/94_abstract.pdf" target="_blank">94</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>吳昭正教授 (北科大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/hmv-qsmj-air" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24E3" style="display:block;" tag="else" end="2021-08-24T09:50:00">
+            <div class="card-header">
+                8:20 ~ 9:50
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=21" target="_blank">
+                        T24E3：Oral Session 21 - Applications of Deep Learning in Intelligent Agriculture
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/62_abstract.pdf" target="_blank">62</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss10-01_abstract.pdf" target="_blank">ss10-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss10-03_abstract.pdf" target="_blank">ss10-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss10-04_abstract.pdf" target="_blank">ss10-04</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>劉偉名教授 (中正)、劉耿豪教授 (中山)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/aup-iakw-uwy" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24E4" style="display:block;" tag="pattern-recognition" end="2021-08-24T09:50:00">
+            <div class="card-header">
+                8:20 ~ 9:50
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=22" target="_blank">
+                        T24E4：Oral Session 22 - Intelligent Image Recognition Technology for Real-World Applications
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/76_abstract.pdf" target="_blank">76</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss11-01_abstract.pdf" target="_blank">ss11-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss11-02_abstract.pdf" target="_blank">ss11-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss11-03_abstract.pdf" target="_blank">ss11-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss11-04_abstract.pdf" target="_blank">ss11-04</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>白敦文教授 (北科大)、葉梅珍教授 (台師大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-danger">圖形識別</span>
+                </div>
+                <a href="https://meet.google.com/jvw-kuut-bpf" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24E5" style="display:block;" tag="else" end="2021-08-24T09:50:00">
+            <div class="card-header">
+                8:20 ~ 9:50
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=23" target="_blank">
+                        T24E5：Oral Session 23 - Intelligent Multimedia and Applications
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss08-01_abstract.pdf" target="_blank">ss08-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss08-02_abstract.pdf" target="_blank">ss08-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss08-04_abstract.pdf" target="_blank">ss08-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss08-05_abstract.pdf" target="_blank">ss08-05</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>黃于飛教授 (宜大)、吳汶涓教授 (宜大)、吳庭育教授 (屏科大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/cyi-vufw-kcg" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <!-- 10:10 ~ 12:10 -->
+        <div class="card" id="T24F1" style="display:block;" tag="else" end="2021-08-24T12:10:00">
+            <div class="card-header">
+                10:10 ~ 12:10
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=24" target="_blank">
+                        T24F1：Oral Session 24 - Advanced Signal Processing for Smart Living
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/57_abstract.pdf" target="_blank">57</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss02-01_abstract.pdf" target="_blank">ss02-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss02-02_abstract.pdf" target="_blank">ss02-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss02-03_abstract.pdf" target="_blank">ss02-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss02-05_abstract.pdf" target="_blank">ss02-05</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss02-06_abstract.pdf" target="_blank">ss02-06</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>曾易聰博士 (資策會)、丁建均教授 (台大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/xtf-xpiu-hcu" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24F2" style="display:block;" tag="else" end="2021-08-24T12:10:00">
+            <div class="card-header">
+                10:10 ~ 12:10
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=25" target="_blank">
+                        T24F2：Oral Session 25 - Practical Applications in Multimedia Signal Processing
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/11_abstract.pdf" target="_blank">11</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss03-01_abstract.pdf" target="_blank">ss03-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss03-02_abstract.pdf" target="_blank">ss03-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss03-03_abstract.pdf" target="_blank">ss03-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss03-05_abstract.pdf" target="_blank">ss03-05</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss03-06_abstract.pdf" target="_blank">ss03-06</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>余執彰教授 (中原)、蘇志文教授 (中原)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/dwg-ztff-ami" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24F3" style="display:block;" tag="else" end="2021-08-24T12:10:00">
+            <div class="card-header">
+                10:10 ~ 12:10
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=26" target="_blank">
+                        T24F3：Oral Session 26 - Multimedia Data Analysis for Industrial Applications
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-01_abstract.pdf" target="_blank">ss04-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-02_abstract.pdf" target="_blank">ss04-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-03_abstract.pdf" target="_blank">ss04-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-04_abstract.pdf" target="_blank">ss04-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-05_abstract.pdf" target="_blank">ss04-05</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-07_abstract.pdf" target="_blank">ss04-07</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss04-08_abstract.pdf" target="_blank">ss04-08</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>林智揚教授 (元智)、許朝詠博士 (中鋼)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/nkr-duoz-qgv" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24F4" style="display:block;" tag="computer-graphics" end="2021-08-24T12:10:00">
+            <div class="card-header">
+                10:10 ~ 12:10
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=27" target="_blank">
+                        T24F4：Oral Session 27 - Deep Learning on Human-Computer Interaction Technology
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss07-01_abstract.pdf" target="_blank">ss07-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss07-02_abstract.pdf" target="_blank">ss07-02</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss07-03_abstract.pdf" target="_blank">ss07-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss07-04_abstract.pdf" target="_blank">ss07-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss07-06_abstract.pdf" target="_blank">ss07-06</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>謝易錚教授 (海大)、林士勛教授 (海大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-warning">電腦圖學</span>
+                </div>
+                <a href="https://meet.google.com/yvb-tquw-dgh" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+        <div class="card" id="T24F5" style="display:block;" tag="else" end="2021-08-24T12:10:00">
+            <div class="card-header">
+                10:10 ~ 12:10
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/manual%20schedule.pdf#page=28" target="_blank">
+                        T24F5：Oral Session 28 - Recent Applications in Hyperspectral Imaging
+                    </a>
+                </h5>
+                <table>
+                    <tr>
+                        <td>論文編號：</td>
+                        <td>
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss09-01_abstract.pdf" target="_blank">ss09-01</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss09-03_abstract.pdf" target="_blank">ss09-03</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss09-04_abstract.pdf" target="_blank">ss09-04</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss09-05_abstract.pdf" target="_blank">ss09-05</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss09-06_abstract.pdf" target="_blank">ss09-06</a>、
+                            <a href="https://datacvgip2021.ee.ntut.edu.tw/media/abstract/abstract_pdf/ss09-07_abstract.pdf" target="_blank">ss09-07</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>主&ensp;持&ensp;人：</td>
+                        <td>陳士煜教授 (雲科大)</td>
+                    </tr>
+                </table>
+                <div class="tag">
+                    <span class="badge badge-pill badge-secondary">其他應用</span>
+                </div>
+                <a href="https://meet.google.com/xrd-qeee-uia" target="_blank" class="btn btn-outline-dark">Meet 會議室</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+    // 判斷是否為 IE 瀏覽器
+    function isIE() {
+        return (navigator.appName == "Microsoft Internet Explorer") ||     // IE 10 以下
+                (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null);    // IE 11
+    }
+
+    // IE 版本
+    function IEVersion() {
+        return parseInt(navigator.appVersion.split(";")[1].replace(/[ ]/g, "").replace("MSIE",""));
+    }
+
+    if (isIE())
+        document.getElementById('hints').style.display = 'block';
+
+    var date = new Date();
+    var now = date.getTime();
+    var sw = false;
+    var tagFilter = [];
+
+
+    var allEndSession = new Map();
+    var allNotEndSession = new Map();
+    var dayBlocks = document.getElementsByClassName('day-block');
+    for (var i = 0; i < dayBlocks.length; i++) {
+        var block = dayBlocks[i];
+        var day = block.getAttribute('class').split(' ')[1];
+        var sessions = block.getElementsByClassName('card');
+        var endSessions = [];
+        var notEndSessions = [];
+        for (var j = 0; j < sessions.length; j++) {
+            var session = sessions[j];
+            var end = session.getAttribute('end');
+            if (now.valueOf() > Date.parse(end).valueOf())
+                endSessions.push(session);
+            else
+                notEndSessions.push(session);
+        }
+        allEndSession.set(day, endSessions);
+        allNotEndSession.set(day, notEndSessions);
+    }
+
+
+    if (document.body.offsetWidth < 560) {
+        document.getElementsByClassName('tag')[0].style.display = 'none';
+        document.getElementsByClassName('dropdown')[0].style.display = 'block';
+    }
+    else {
+        document.getElementsByClassName('tag')[0].style.display = 'block';
+        document.getElementsByClassName('dropdown')[0].style.display = 'none';
+    }
+
+    display();
+
+    function display() {
+        var status1;
+        var status2;
+        if (sw) {
+            status1 = 'none';
+            status2 = 'block';
+        }
+        else {
+            status1 = 'block';
+            status2 = 'none';
+        }
+        allNotEndSession.forEach(function(sessions, day) {
+            var dayTag = document.getElementsByClassName(day)[0].getElementsByClassName('day-tag')[0];
+            if (sessions.length > 0) {
+                if (!sw)
+                    dayTag.style.display = status1;
+                for (var i = 0; i < sessions.length; i++)
+                    sessions[i].style.display = status1;
+            }
+            else
+                dayTag.style.display = status2;
+        });
+        allEndSession.forEach(function(sessions, day) {
+            var dayTag = document.getElementsByClassName(day)[0].getElementsByClassName('day-tag')[0];
+            if (sessions.length > 0) {
+                if (sw)
+                    dayTag.style.display = status2;
+                for (var i = 0; i < sessions.length; i++) {
+                    sessions[i].style.display = status2;
+                    sessions[i].style.color = '#BBB';
+                    var buttons = sessions[i].getElementsByClassName('btn');
+                    for (var j = 0; j < buttons.length; j++) {
+                        buttons[j].className += ' disabled';
+                        buttons[j].setAttribute('tabindex', '-1');
+                    }
+                    var links = sessions[i].getElementsByTagName('a');
+                    for (var j = 0; j < links.length; j++) {
+                        links[j].setAttribute('style', 'pointer-events: none;');
+                        links[j].style.color = '#BBB';
+                    }
+                }
+            }
+            else
+                dayTag.style.display = status1;
+        });
+    }
+
+    function displaySwitch() {
+        sw = !sw;
+        var button = document.getElementById('switch')
+        if (sw) {
+            button.className = 'btn btn-success'
+            button.innerHTML = '查看未結束議程';
+        }
+        else {
+            button.className = 'btn btn-danger'
+            button.innerHTML = '查看已結束議程';
+        }
+        selectTag();
+        display();        
+    }
+
+    function selectDay(value, status) {
+        if (status)
+            document.getElementsByClassName(value)[0].style.display = 'block';
+        else
+            document.getElementsByClassName(value)[0].style.display = 'none';
+	}
+
+    function selectTag(value, status) {
+        if (value)
+            if (status)
+                tagFilter.splice(tagFilter.indexOf(value), 1);
+            else
+                tagFilter.push(value);
+
+        var sessions = [];
+        if (sw)
+            allEndSession.forEach(function(sess, _) {
+                sessions = sessions.concat(sess);
+            });
+        else
+            allNotEndSession.forEach(function(sess, _) {
+                sessions = sessions.concat(sess);
+            });
+            
+        for (var i = 0; i < sessions.length; i++) {
+            var session = sessions[i];
+            var tagStr = session.getAttribute('tag');
+            if (tagStr) {
+                var tags = tagStr.split(' ');
+                var hidden = true;
+                for (var j = 0; j < tags.length; j++)
+                    hidden &= tagFilter.includes(tags[j]);
+                if (hidden)
+                    session.style.display = 'none';
+                else
+                    session.style.display = 'block';
+            }
+        }
+	}
+
+    $(function () {
+        $('[data-toggle="popover"]').popover({
+            html: true,
+            trigger: 'focus',
+            content: function() {
+                return $('#popover-body').html();
+            }
+        })
+    })
+</script>
+<style>
+    body {
+        background-color: #E0E0E0;
+    }
+    .filter, #hints {
+        margin: 20px 50px;
+    }
+    .dropdown-menu {
+        padding: 5px 8%;
+        margin: 0;
+        max-width: 100px;
+    }
+    .form-check-inline {
+        width: 8%;
+        max-width: 85px;
+        min-width: 40px;
+    }
+    .switch .btn-secondary {
+        float: right;
+    }
+    .popover {
+        min-width: 300px;
+        max-width: 800px;
+        width: 50%;
+    }
+    table td {
+        vertical-align: text-top;
+    }
+    .switch {
+        margin: 0 50px;
+    }
+    .card {
+        margin: 20px 50px;
+    }
+    .card td {
+        min-width: 80px;
+        box-sizing: content-box;
+    }
+    .day-tag {
+        margin: 20px 50px 0px 50px;
+    }
+    .card-text {
+        margin-bottom: 0px;
+    }
+    .tag {
+        margin-top: 5px;
+    }
+    .btn-outline-dark {
+        margin-top: 16px;
+    }
+</style>

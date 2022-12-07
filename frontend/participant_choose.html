@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>報名系統</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+          <span class="navbar-brand m-lg-auto mb-0 h1">CVGIP 2021 線上報名處</span>
+      </div>
+    </nav>
+    <div class="choose">
+      <form method="POST" action="temp/">
+        {% csrf_token %}
+        <h1>報名選擇</h1>
+        <div class="paper">
+          <input class="form-check-input" type="radio" id="upload_yes" name="choose_option" value="upload_yes" checked>
+          <label for="upload_yes"><b class="type">論文編號報名</b>
+            <input type="text" name="upload_yesNum" input placeholder="論文編號輸入"  >
+            <div class="descript">
+              須完成論文投稿並審核通過才使用論文編號報名。<br>
+              根據 CVGIP 歷年規定，若一個作者投稿多篇論文，每篇論文均需有一人代表註冊。
+            </div>
+          </label>
+        </div>
+        
+        <div class="no_paper">
+          <input class="form-check-input" type="radio" id="upload_no" name="choose_option" value="upload_no">
+          <label for="upload_no"><b class="type">直接報名</b>
+            <div class="descript">
+              不發表論文直接報名。
+            </div>
+          </label>
+        </div>
+		
+		<div class="onlypost">
+          <input class="form-check-input" type="radio" id="upload_onlypost" name="choose_option" value="upload_onlypost" checked>          
+          <label for="upload_onlypost"><b class="type">科技部成果發表</b>
+            <div class="descript">
+              僅參加科技部成果發表。
+            </div>
+          </label>
+        </div>
+		
+        <center>
+          <button>
+            <b>確定</b>
+          </button>
+        </center>
+      </form>
+    </div>
+    
+    <table class="table table-bordered price" cellpadding="8">
+      <tr>
+        <td></td>
+        <td colspan="3">IPPR 會員</td>
+        <td colspan="3">非 IPPR 會員</td>
+      </tr>
+      <tr>
+        <td>日期</td>
+        <td>成果發表</td>
+        <td>教師與業界</td>
+        <td>學生</td>
+        <td>成果發表</td>
+        <td>教師與業界</td>
+        <td>學生</td>
+      </tr>
+      <tr>
+        <td>7/31(含)前</td>
+        <td>NT&#36; 2700</td>
+        <td>NT&#36; 2700</td>
+        <td>NT&#36; 1500</td>
+        <td>NT&#36; 3700</td>
+        <td>NT&#36; 3700</td>
+        <td>NT&#36; 2500</td>
+      </tr>
+      <tr>
+        <td>8/1~8/13(含)</td>
+        <td>NT&#36; 3200</td>
+        <td>NT&#36; 3200</td>
+        <td>NT&#36; 2000</td>
+        <td>NT&#36; 4200</td>
+        <td>NT&#36; 4200</td>
+        <td>NT&#36; 3000</td>
+      </tr>
+      <tr>
+        <td>8/11以後報名</td>
+        <td>NT&#36; 3700</td>
+        <td>NT&#36; 3700</td>
+        <td>NT&#36; 2500</td>
+        <td>NT&#36; 4700</td>
+        <td>NT&#36; 4700</td>
+        <td>NT&#36; 3500</td>
+      </tr>
+    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: #E0E0E0;
+  }
+  h1 {
+    text-align: center;
+  }
+  .choose {
+    display: flex;
+    justify-content: center;
+  }
+  .paper {
+    background-color: lightblue;
+    padding: 10px;
+  }
+  .no_paper {
+    background-color: lightgreen;
+    padding: 10px;
+  }
+  .onlypost {
+    background-color: lightblue;
+    padding: 10px;
+  }
+  input[type="text"] {
+    background-color: lightblue;
+    width: 50%;
+    max-width: 120px;
+  }
+  form {
+    width: 50%;
+  }
+  button  {
+    width: 80px;
+    height: 30px;
+    font-size: 15px;
+    margin: 10px;
+    background-color: lightgrey;
+  }
+  .descript {
+    padding: 10px 10px 0px 10px;
+    font-size: 18px;
+  }
+  .type {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  .price {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border: #333;
+  }
+</style>
